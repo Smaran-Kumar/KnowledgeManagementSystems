@@ -9,13 +9,11 @@
     <parameter name="topicName" value="USI_AUTO_TOPIC"/>
     <parameter name="username" value="usqaex\vdonepudi"/>
     <classes>
-      <class name="test.VerifyNewTopicCreated">
+      <class name="test.VerifyEditTopic">
         <methods>
-          <include name="verifyTopicCreated"/>
-          <include name="launch"/>
-          <include name="NaviagteToHomePage"/>
+          <include name="EditTopic" invocation-numbers="0"/>
         </methods>
-      </class> <!-- test.VerifyNewTopicCreated -->
+      </class> <!-- test.VerifyEditTopic -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -3,26 +3,28 @@ package test;
 import java.util.Date;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import pages.EditTopic;
 import pages.HomePage;
 import pages.LaunchBrowser;
+import pages.NewTopic;
 import pages.PropertiesRead;
 import pages.Qauth;
 import pages.ScrolltoView;
-import pages.NewTopic;
 
 public class VerifyNewTopicCreated extends LaunchBrowser {
 	private Qauth quath;
-	private String NewtopicName,generatedTopicLocator;
+	public static String  NewtopicName;
+	WebElement generatedTopicLocator;
 	private NewTopic topic;
 	private EditTopic edittopic;
 
-	@BeforeTest
+	@BeforeClass
 	public void launch() {
 		quath = new Qauth(LaunchBrowser.setup());
 	}
@@ -32,7 +34,7 @@ public class VerifyNewTopicCreated extends LaunchBrowser {
 	public void NaviagteToHomePage(String username, String password, String topicName) throws InterruptedException {
 		HomePage homepage = quath.loginToKMS(username, password);
 		topic = homepage.clickOnThreeDots();
-		NewtopicName = topicName + " " + new Date();
+		NewtopicName = topicName ;//+ " " + new Date();
 		topic.setTopicTitle(NewtopicName);
 		topic.setTopicAdminstrators(PropertiesRead.read().getProperty("topicAdminstrator"));
 		topic.clickSaveTopic();
@@ -40,17 +42,18 @@ public class VerifyNewTopicCreated extends LaunchBrowser {
 	}
 
 	@Test(dependsOnMethods = "NaviagteToHomePage", alwaysRun = true)
-	public void verifyTopicCreated() throws InterruptedException {
+	public WebDriver verifyTopicCreated() throws InterruptedException {
 		Thread.sleep(3000);
-		ScrolltoView.scrollTo(driver, ".//*[@title='" + NewtopicName + "']");
+		ScrolltoView.scrollToUsingXpath(driver, ".//*[@title='" + NewtopicName + "']");
 		WebElement generatedTopicLocator = driver.findElement(By.xpath(".//*[@title='" + NewtopicName + "']"));
 		ScrolltoView.hoverOverOnElement(driver, generatedTopicLocator);
+		return driver;
 	}
 
 	@Test(dependsOnMethods = ("verifyTopicCreated"), alwaysRun = false)
-	public void verifyTopicEdited() {
-		topic.editTopic(generatedTopicLocator);
-	
+	public String sendTopicName() {
+		driver.close();
+		return NewtopicName;
 	}
 
 }

@@ -10,10 +10,21 @@ public class ScrolltoView {
 
 	private static By element;
 
-	public static void scrollTo(WebDriver driver, String xpath) throws InterruptedException {
+	public static void scrollToUsingXpath(WebDriver driver, String xpath) throws InterruptedException {
 
 		element = By.xpath(xpath);
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", driver.findElement(element));
+		Thread.sleep(500);
+	}
+	public static void scrollToUsingBy(WebDriver driver, By by) throws InterruptedException {
+
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", driver.findElement(by));
+		Thread.sleep(500);
+	}
+	
+	public static void scrollToUsingWebElement(WebDriver driver, WebElement element) throws InterruptedException {
+
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(false);", element);
 		Thread.sleep(500);
 	}
 

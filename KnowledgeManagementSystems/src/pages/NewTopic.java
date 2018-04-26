@@ -25,8 +25,9 @@ public class NewTopic {
 
 	String topicTitleText=".//input[@ng-model='vm.topicManagement.TopicName']";
 	String successMessage = "//*[@class='toast-message' and contains(text(),'Saved successfully')]";
+	String selectAdmin=".//*[@class='ui-menu-item']/a[contains(text(),'Stephen P. Bonck')]";
 	@FindBy(how = How.XPATH, using = ".//input[@ng-model='vm.topicManagement.TopicName']")
-	private WebElement topicTitle;
+	public static WebElement topicTitle;
 
 	@FindBy(how = How.XPATH, using = ".//label[contains(text(),'Administrators')]/parent::*/following-sibling::div/input")
 	private WebElement topicAdministrators;
@@ -35,7 +36,7 @@ public class NewTopic {
 	private WebElement selectAdministrator;
 	
 	@FindBy(how=How.XPATH,using=".//*[@ng-click='vm.SaveTopic()']")
-	private WebElement topicSaveButton;
+	public static WebElement topicSaveButton;
 
 	public boolean verifyTopicDialogHeading() {
 		WaitFluent.waitTillElementVisibile(driver,topicTitleText);
@@ -54,7 +55,7 @@ public class NewTopic {
 
 	public void setTopicAdminstrators(String topicAdminstrator) throws InterruptedException {
 		topicAdministrators.sendKeys(topicAdminstrator);
-		Thread.sleep(3000);
+		WaitFluent.waitTillElementVisibile(driver, selectAdmin);
 		if (selectAdministrator.isDisplayed()) {
 			selectAdministrator.click();
 		}
@@ -69,9 +70,6 @@ public class NewTopic {
 	}
 	
 	
-	public EditTopic editTopic(String topicName){
-		return new EditTopic(topicName);
-	}
 	
 
 }

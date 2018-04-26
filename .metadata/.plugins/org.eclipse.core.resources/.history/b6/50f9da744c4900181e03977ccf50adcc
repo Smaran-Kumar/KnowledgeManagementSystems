@@ -1,0 +1,15 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class EditTopic {
+
+	private String existingTopicName;
+
+	EditTopic(String topicName) {
+		this.existingTopicName = topicName;
+	}
+
+}

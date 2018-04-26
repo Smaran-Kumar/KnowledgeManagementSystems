@@ -1,19 +1,44 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+import test.VerifyNewTopicCreated;
 
 public class EditTopic {
 
-	private String existingTopicName;
+	private WebDriver driver;;
+	private static String existingTopicName;
 
-	EditTopic(String topicName) {
-		this.existingTopicName = topicName;
-	}
+	@FindBy(how = How.XPATH, using = ".//*[@id='manageTopic']")
+	private WebElement editManageTopic;
 	
-	EditTopic(){
-		
+	
+
+	public EditTopic(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
+	public String sendTopicName() {
+		existingTopicName = VerifyNewTopicCreated.NewtopicName;
+		return existingTopicName;
+	}
+
+	public void editTopicName(String editedTopicname) throws InterruptedException {
+		By topiceditThreeDot = By.xpath(".//*[@title='" + sendTopicName() + "']/parent::*/following-sibling::div//i");
+		driver.findElement(topiceditThreeDot).click();
+		ScrolltoView.scrollToUsingWebElement(driver, editManageTopic);
+		editManageTopic.click();
+		if(NewTopic.topicTitle.getText().isEmpty())
+			Thread.sleep(2000);
+		NewTopic.topicTitle.clear();
+		Thread.sleep(2000);
+		NewTopic.topicTitle.sendKeys(editedTopicname);
+		NewTopic.topicSaveButton.click();
+	}
 }
