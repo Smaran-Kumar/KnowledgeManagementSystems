@@ -1,0 +1,77 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+import common.WaitFluent;
+
+public class NewTopic {
+	WebDriver driver;
+
+	NewTopic(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(how = How.XPATH, using = ".//span[contains(text(),'New Topic Area')]")
+	private WebElement topicDialogHeading;
+	/*
+	 * .//span[contains(text(),'New Topic Area')]/ancestor::div//input
+	 * .//input[@type='text' and @placeholder='Enter Title']
+	 */
+
+	String topicTitleText=".//input[@ng-model='vm.topicManagement.TopicName']";
+	String successMessage = "//*[@class='toast-message' and contains(text(),'Saved successfully')]";
+	@FindBy(how = How.XPATH, using = ".//input[@ng-model='vm.topicManagement.TopicName']")
+	private WebElement topicTitle;
+
+	@FindBy(how = How.XPATH, using = ".//label[contains(text(),'Administrators')]/parent::*/following-sibling::div/input")
+	private WebElement topicAdministrators;
+
+	@FindBy(how = How.XPATH, using = ".//*[@class='ui-menu-item']/a[contains(text(),'Stephen P. Bonck')]")
+	private WebElement selectAdministrator;
+	
+	@FindBy(how=How.XPATH,using=".//*[@ng-click='vm.SaveTopic()']")
+	private WebElement topicSaveButton;
+
+	public boolean verifyTopicDialogHeading() {
+		WaitFluent.waitTillElementVisibile(driver,topicTitleText);
+		if ((topicDialogHeading).isDisplayed())
+			return true;
+		else
+			return false;
+	}
+
+	public void setTopicTitle(String settopicTitle) {
+		if (verifyTopicDialogHeading()) {
+			topicDialogHeading.click();
+			topicTitle.sendKeys(settopicTitle);
+		}
+	}
+
+	public void setTopicAdminstrators(String topicAdminstrator) throws InterruptedException {
+		topicAdministrators.sendKeys(topicAdminstrator);
+		Thread.sleep(3000);
+		if (selectAdministrator.isDisplayed()) {
+			selectAdministrator.click();
+		}
+	}
+	
+	public void clickSaveTopic(){
+		topicSaveButton.click();
+	}
+	
+	public void verifySuccessMessageDisplay(){
+		WaitFluent.waitTillElementVisibile(driver, successMessage);
+	}
+	
+	
+	public EditTopic editTopic(String topicName){
+		return new EditTopic(topicName);
+	}
+	
+
+}

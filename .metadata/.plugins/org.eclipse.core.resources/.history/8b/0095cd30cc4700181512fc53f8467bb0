@@ -1,0 +1,23 @@
+package test;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import pages.LaunchBrowser;
+import pages.Quath;
+
+public class VerifyLogin extends LaunchBrowser {
+	
+
+	@BeforeTest
+	public void launch() {
+		new Quath(LaunchBrowser.setup());
+	}
+
+	@Test
+	public void HomePage() {
+		
+	}
+
+}

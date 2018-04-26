@@ -1,0 +1,16 @@
+package pages;
+
+import locators.Quath;
+
+public class QuathLogin extends Quath{
+
+	QuathLogin(){
+		super();
+	}
+	  public HomePage loginToKMS(String username,String password){
+		  usernameInput.sendKeys(username);
+		  passwordInput.sendKeys(password);
+		  submitButton.click();
+		  return new HomePage();
+	  }
+}

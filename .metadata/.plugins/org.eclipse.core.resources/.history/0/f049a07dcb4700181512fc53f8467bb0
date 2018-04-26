@@ -1,0 +1,20 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+
+import locators.Quath;
+
+public class QuathLogin{
+
+	Quath quath = new Quath();
+	public HomePage loginToKMS(String username,String password){
+		  usernameInput.sendKeys(username);
+		  passwordInput.sendKeys(password);
+		  submitButton.click();
+		  return new HomePage();
+	  }
+
+
+
+
+}

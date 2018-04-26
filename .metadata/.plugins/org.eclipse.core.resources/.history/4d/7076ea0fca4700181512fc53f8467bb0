@@ -1,0 +1,12 @@
+package test;
+
+import pages.LaunchBrowser;
+
+public class VerifyLogin extends LaunchBrowser {
+
+	
+		
+
+
+
+}

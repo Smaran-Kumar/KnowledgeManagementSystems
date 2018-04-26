@@ -1,0 +1,15 @@
+package pages;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Properties;
+
+public class PropertiesRead {
+
+	
+	public static void read(){
+		BufferedReader br = new BufferedReader(new FileReader("./src/config/Config.properties"));
+		prop = new Properties();
+		prop.load(br);
+	}
+}

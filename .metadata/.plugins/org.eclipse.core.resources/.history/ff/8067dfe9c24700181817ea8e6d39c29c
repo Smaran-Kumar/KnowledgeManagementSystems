@@ -1,0 +1,8 @@
+package locators;
+
+public class QuathLogin {
+	WebDriver driver;
+	QuathLogin(WebDriver driver){
+		this.driver=driver;
+	}
+}

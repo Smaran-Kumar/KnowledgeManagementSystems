@@ -1,0 +1,26 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class Topic {
+
+	@FindBy(how = How.XPATH, using = ".//span[contains(text(),'New Topic Area')]")
+	private WebElement topicDialogHeading;
+
+	// .//span[contains(text(),'New Topic Area')]/ancestor::div//input
+	// .//input[@type='text' and @placeholder='Enter Title']
+	@FindBy(how = How.XPATH, using = ".//input[@ng-model='vm.topicManagement.TopicName']")
+	private WebElement topicTitle;
+
+	@FindBy(how = How.XPATH, using = ".//input[@type='text' and @placeholder='Assign Administrators']")
+	private WebElement topicAdministrators;
+	
+	public void setTopicTitle(WebElement topicTitle) {
+		this.topicTitle = topicTitle;
+	}
+	
+	
+
+}

@@ -1,0 +1,15 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+
+import locators.Quath;
+
+public class QuathLogin{
+
+	Quath quath = new Quath();
+
+
+
+
+
+}

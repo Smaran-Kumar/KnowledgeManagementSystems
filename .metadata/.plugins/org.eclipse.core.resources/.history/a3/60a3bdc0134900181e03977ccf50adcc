@@ -1,0 +1,24 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class ScrolltoView {
+
+	private static By element;
+
+	public static void scrollTo(WebDriver driver, String xpath) throws InterruptedException {
+
+		element = By.xpath(xpath);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(element));
+		Thread.sleep(500);
+	}
+
+	private static void hoverOverOnElement(WebDriver driver,WebElement element) {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(element).perform();
+	}
+}

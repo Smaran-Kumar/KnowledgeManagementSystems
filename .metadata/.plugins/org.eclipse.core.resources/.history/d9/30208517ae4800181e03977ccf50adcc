@@ -1,0 +1,43 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+import common.WaitFluent;
+
+public class HomePage {
+
+	WebDriver driver;
+	String mainHeadingText=".//span[contains(text(),'RRA Topic Area (Home)')]";
+	@FindBy(how = How.XPATH, using = ".//span[contains(text(),'RRA Topic Area (Home)')]")
+	private WebElement mainHeading;
+
+	private By addNewTopicButton = By.xpath(".//*[contains(text(),'New Topic Area')]");
+
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public boolean verifyHeading() throws InterruptedException {
+		WaitFluent.waitTillElementVisibile(driver, mainHeadingText);
+		if (mainHeading.isDisplayed())
+			return true;
+		else
+			return false;
+	}
+
+	private By threeDots = By.xpath(".//*[@id='areaContext']/preceding-sibling::*/i");
+
+	public Topic clickOnThreeDots() throws InterruptedException {
+		if (verifyHeading()) {
+			driver.findElement(threeDots).click();
+			driver.findElement(addNewTopicButton).click();
+			return new Topic(driver);
+		} else
+			return null;
+
+	}
+}

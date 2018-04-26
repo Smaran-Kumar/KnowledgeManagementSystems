@@ -1,0 +1,22 @@
+package test;
+
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import pages.LaunchBrowser;
+import pages.Quath;
+
+public class VerifyLogin extends LaunchBrowser {
+	private Quath quath;
+
+	@BeforeTest
+	public void launch() {
+		quath =new Quath(LaunchBrowser.setup());
+	}
+
+	@Test
+	public void HomePage() {
+		
+	}
+
+}

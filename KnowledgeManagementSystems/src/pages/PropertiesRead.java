@@ -1,0 +1,26 @@
+package pages;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
+
+public class PropertiesRead {
+
+	private static Properties prop;
+
+	public static Properties read() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./src/config/Config.properties"));
+			prop = new Properties();
+			prop.load(br);
+			return prop;
+		} catch (FileNotFoundException e) {
+			System.out.println("File Not Found,Please check the Config/Chrome Driver file location");
+		} catch (IOException e) {
+			System.out.println("Properties file cann't be loaded");
+		}
+		return prop;
+	}
+}

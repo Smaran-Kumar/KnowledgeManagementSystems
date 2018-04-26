@@ -1,0 +1,23 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class HomePage {
+
+	WebDriver driver;
+	private By mainHeading = By.xpath(".//span[contains(text(),'RRA Topic Area (Home)')]");
+
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public boolean verifyHeading() {
+		if (driver.findElement(mainHeading).isDisplayed())
+			return true;
+		else
+			return false;
+	}
+	
+	private By threeDots = By.xpath(".//*[@id='areaContext']/preceding-sibling::*/i");
+}

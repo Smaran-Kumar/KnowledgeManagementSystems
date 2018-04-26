@@ -1,0 +1,15 @@
+package pages;
+
+public class EditTopic {
+	
+	
+ private String existingTopicName;	
+	EditTopic(){
+		
+	}
+	EditTopic(String topicName){
+		this.existingTopicName=topicName;
+	}
+
+	
+}

@@ -1,0 +1,5 @@
+QAURL=qkmsnapshots.deloitte.com
+STAGINGURL=skmsnapshots.deloitte.com
+environment= QA
+browser=chrome
+topicAdminstrator=sbonck

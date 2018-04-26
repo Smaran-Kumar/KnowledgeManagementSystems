@@ -1,0 +1,35 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class HomePage {
+
+	WebDriver driver;
+	private By mainHeading = By.xpath(".//span[contains(text(),'RRA Topic Area (Home)')]");
+	
+	private By addNewTopicButton = By.xpath(".//*[contains(text(),'New Topic Area')]");
+
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public boolean verifyHeading() {
+		if (driver.findElement(mainHeading).isDisplayed())
+			return true;
+		else
+			return false;
+	}
+
+	private By threeDots = By.xpath(".//*[@id='areaContext']/preceding-sibling::*/i");
+
+	public Topic clickOnThreeDots() {
+		if (verifyHeading()) {
+			driver.findElement(threeDots).click();
+			driver.findElement(addNewTopicButton).click();
+			return null;//new Topic(driver);
+		} else
+			return null;
+
+	}
+}

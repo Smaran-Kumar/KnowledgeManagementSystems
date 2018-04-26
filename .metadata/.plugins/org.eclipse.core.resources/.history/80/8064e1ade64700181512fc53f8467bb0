@@ -1,0 +1,6 @@
+package pages;
+
+public class Topic {
+
+	@FindBy(how=How.xpath,using=".//span[contains(text(),'New Topic Area')]")
+}

@@ -1,0 +1,34 @@
+package locators;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+import pages.HomePage;
+import pages.LaunchBrowser;
+
+public class Quath extends LaunchBrowser {
+	WebDriver driver;
+
+	Quath(WebDriver driver) {
+		this.driver=LaunchBrowser.setup();
+		PageFactory.initElements(driver, this);
+		}
+
+	@FindBy(how = How.XPATH, using = ".//span[contains(text(),'qauth.us.deloitte.com')]")
+	protected WebElement quathLink;
+
+	@FindBy(how = How.XPATH, using = ".//*[@id='userNameInput']")
+	protected WebElement usernameInput;
+
+	@FindBy(how = How.XPATH, using = ".//*[@id='passwordInput']")
+	protected WebElement passwordInput;
+
+	@FindBy(how = How.XPATH, using = ".//*[@id='submitButton']")
+	protected WebElement submitButton;
+	
+	
+
+}

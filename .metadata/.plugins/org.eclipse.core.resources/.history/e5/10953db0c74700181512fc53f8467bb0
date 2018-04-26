@@ -1,0 +1,11 @@
+package pages;
+
+public class QuathLogin {
+
+	  public HomePage loginToKMS(String username,String password){
+		  usernameInput.sendKeys(username);
+		  passwordInput.sendKeys(password);
+		  submitButton.click();
+		  return new HomePage();
+	  }
+}

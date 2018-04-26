@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="61446" started-at="2018-04-26T11:35:54Z" finished-at="2018-04-26T11:36:55Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="61446" started-at="2018-04-26T11:35:54Z" finished-at="2018-04-26T11:36:55Z">
+      <class name="test.VerifyNewTopicCreated">
+        <test-method status="PASS" signature="launch()[pri:0, instance:test.VerifyNewTopicCreated@4f933fd1]" name="launch" is-config="true" duration-ms="6180" started-at="2018-04-26T17:05:54Z" finished-at="2018-04-26T17:06:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launch -->
+        <test-method status="PASS" signature="NaviagteToHomePage(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:test.VerifyNewTopicCreated@4f933fd1]" name="NaviagteToHomePage" duration-ms="49498" started-at="2018-04-26T17:06:00Z" finished-at="2018-04-26T17:06:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[usqaex\vdonepudi]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Portal123!]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[USI_AUTO_TOPIC]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NaviagteToHomePage -->
+        <test-method status="PASS" signature="verifyTopicCreated()[pri:0, instance:test.VerifyNewTopicCreated@4f933fd1]" name="verifyTopicCreated" duration-ms="5735" started-at="2018-04-26T17:06:50Z" depends-on-methods="test.VerifyNewTopicCreated.NaviagteToHomePage" finished-at="2018-04-26T17:06:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTopicCreated -->
+        <test-method status="PASS" signature="verifyTopicEdited()[pri:0, instance:test.VerifyNewTopicCreated@4f933fd1]" name="verifyTopicEdited" duration-ms="5" started-at="2018-04-26T17:06:55Z" depends-on-methods="test.VerifyNewTopicCreated.verifyTopicCreated" finished-at="2018-04-26T17:06:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTopicEdited -->
+      </class> <!-- test.VerifyNewTopicCreated -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

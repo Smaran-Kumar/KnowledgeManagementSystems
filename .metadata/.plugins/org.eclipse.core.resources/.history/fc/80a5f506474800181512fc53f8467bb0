@@ -1,0 +1,42 @@
+package pages;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.SessionNotCreatedException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LaunchBrowser {
+	public static WebDriver driver;
+	private static Properties prop;
+
+	public static WebDriver setup() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./src/config/Config.properties"));
+			prop = new Properties();
+			prop.load(br);
+
+			String Brw = prop.getProperty("browser");
+			if (Brw.equals("chrome")) {
+				System.setProperty("webdriver.chrome.driver", "./lib/chromedriver.exe");
+				driver = new ChromeDriver();
+				driver.get("https://qkmsnapshots.deloitte.com/");
+				driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+				driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+				return driver;
+			}
+		} catch (SessionNotCreatedException e) {
+			System.out.println("Session Couldn't be created");
+		} catch (FileNotFoundException e) {
+			System.out.println("File Not Found,Please check the file location");
+		} catch (IOException e) {
+			System.out.println("Properties file cann't be loaded");
+		}
+		return driver = null;
+	}
+}
