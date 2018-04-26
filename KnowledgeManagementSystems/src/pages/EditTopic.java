@@ -11,5 +11,9 @@ public class EditTopic {
 	EditTopic(String topicName) {
 		this.existingTopicName = topicName;
 	}
+	
+	EditTopic(){
+		
+	}
 
 }
