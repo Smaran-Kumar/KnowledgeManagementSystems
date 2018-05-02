@@ -1,0 +1,15 @@
+package pages;
+
+public class EditTopic {
+
+	private WebElement existingTopicName;
+
+	EditTopic(WebElement topicName) {
+		this.existingTopicName = topicName;
+	}
+	
+	EditTopic(){
+		
+	}
+
+}

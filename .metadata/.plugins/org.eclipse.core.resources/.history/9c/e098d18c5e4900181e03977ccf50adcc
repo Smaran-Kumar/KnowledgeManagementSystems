@@ -1,0 +1,17 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+
+public class EditTopic {
+
+	private WebElement existingTopicName;
+
+	EditTopic(WebElement topicName) {
+		this.existingTopicName = topicName;
+	}
+	
+	EditTopic(){
+		
+	}
+
+}

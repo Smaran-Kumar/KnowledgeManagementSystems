@@ -1,0 +1,14 @@
+package test;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class VerifyEditTopic {
+
+	@Parameters({ "username", "password", "topicName" })
+    @Test
+ public void EditTopic(String username, String password, String topicName){
+	VerifyNewTopicCreated created = new VerifyNewTopicCreated(); 
+	created.NaviagteToHomePage(username, password, topicName);
+}
+}

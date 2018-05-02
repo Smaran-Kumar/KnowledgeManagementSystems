@@ -1,0 +1,30 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class EditTopic {
+
+	private static WebDriver driver;;
+	private static String existingTopicName;
+	public EditTopic(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	public EditTopic(String topicName){
+		this.existingTopicName=topicName;
+	}
+ 
+	.//*[@title='USI_AUTO_TOPIC Thu Apr 26 20:19:52 IST 2018']/parent::*/following-sibling::div//i
+	 @FindBy(how=How.XPATH,using="")
+	 private WebElement topicThreeDot;
+	 
+	 
+	 public void editTopicName()
+	 {
+		
+		 		 
+	 }
+}

@@ -1,0 +1,25 @@
+package pages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+
+public class EditTopic {
+
+	private static String existingTopicName;
+
+	public EditTopic(String topicName) {
+		this.existingTopicName = topicName;
+	}
+ 
+	 @FindBy(how=How.XPATH,using="")
+	 private WebElement topicThreeDot;
+	 
+	 
+	 public void editTopicName()
+	 {
+		 String threeDots=existingTopicName+"/parent::*/following-sibling::div//i";
+		 
+		 
+	 }
+}

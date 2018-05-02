@@ -1,0 +1,11 @@
+package test;
+
+import org.testng.annotations.Test;
+
+public class VerifyEditTopic {
+
+@Test
+ public void EditTopic(){
+	VerifyNewTopicCreated created = new VerifyNewTopicCreated(); 
+}
+}

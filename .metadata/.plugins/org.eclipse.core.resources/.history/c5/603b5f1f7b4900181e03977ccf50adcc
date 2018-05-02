@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="Test">
+
+		<parameter name="username" value="usqaex\vdonepudi" />
+		<parameter name="password" value="Portal123!" />
+		<parameter name="topicName" value="USI_AUTO_TOPIC" />
+		<parameter name="editedTopicName" value="USI_AUTO_TOPIC_UPDATED" />
+		<classes>
+		<class name="test.VerifyEditTopic">
+			</class>
+			<class name="test.VerifyEditTopic">
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
