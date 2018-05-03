@@ -5,12 +5,17 @@
 
 		<parameter name="username" value="usqaex\vdonepudi" />
 		<parameter name="password" value="Portal123!" />
-		<parameter name="topicName" value="USI_AUTO_TOPIC" />
-		<parameter name="editedTopicName" value="USI_AUTO_TOPIC_UPDATED" />
+		 <parameter name="topicName" value="USI_AUTO_TOPIC" />
+		 <parameter name="editedTopicName" value="USI_AUTO_TOPIC_UPDATED" />
+		<parameter name="deleteTopicName" value="Automation Topic" />
 		<classes>
-		<class name="test.VerifyNewTopicCreated">
+		<!--<class name="test.VerifyNewTopicCreated">
 			</class>
-			<class name="test.VerifyEditTopic">
+			<class name="test.VerifyNewTopicCreated">
+			</class>-->
+		<class name="test.DeleteTopic">
+			</class>
+			<class name="test.DeleteTopic">
 			</class>
 		</classes>
 	</test> <!-- Test -->
